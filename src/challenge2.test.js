@@ -13,7 +13,7 @@ describe('Test Challenge 2 functions', () => {
   test('expect to return hospitalBedsByRequestedTime', () => {
     const input1 = 100000;
     const input2 = 10000;
-    const output = { hospitalBedsByRequestedTime: 24999 };
+    const output = { hospitalBedsByRequestedTime: 25000 };
     expect.assertions(1);
     expect(calculateHospitalBedsByRequestedTime(input1, input2)).toEqual(output);
   });
