@@ -10,10 +10,10 @@ describe('Test Challenge 2 functions', () => {
     expect.assertions(1);
     expect(calculateSevereCasesByRequestedTime(input)).toEqual(output);
   });
-  test('expect to return 15% of infectionsByRequestedTime', () => {
+  test('expect to return hospitalBedsByRequestedTime', () => {
     const input1 = 100000;
     const input2 = 10000;
-    const output = { hospitalBedsByRequestedTime: 25000 };
+    const output = { hospitalBedsByRequestedTime: 24999 };
     expect.assertions(1);
     expect(calculateHospitalBedsByRequestedTime(input1, input2)).toEqual(output);
   });
