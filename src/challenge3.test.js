@@ -26,8 +26,8 @@ describe('Test challenge3 functions', () => {
     const timeToElapse = 58;
     const periodType = 'days';
     const output = {
-      dollarsInFlight: (infectionsByRequestedTime * avgDailyIncomePopulation)
-        * avgDailyIncomeInUSD * 58
+      dollarsInFlight: Math.floor((infectionsByRequestedTime * avgDailyIncomePopulation
+        * avgDailyIncomeInUSD) / 58)
     };
     expect.assertions(1);
     expect(calculateDollarsInFlight(
