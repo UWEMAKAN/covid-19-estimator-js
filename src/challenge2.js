@@ -6,7 +6,7 @@ export const calculateSevereCasesByRequestedTime = (infectionsByRequestedTime) =
 export const calculateHospitalBedsByRequestedTime = (
   totalHospitalBeds, severeCasesByRequestedTime
 ) => {
-  const hospitalBedsByRequestedTime = Math.ceil(totalHospitalBeds * 0.35)
+  const hospitalBedsByRequestedTime = Math.floor(totalHospitalBeds * 0.35)
                                         - severeCasesByRequestedTime;
   return { hospitalBedsByRequestedTime };
 };
