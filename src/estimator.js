@@ -2,23 +2,23 @@ import {
   impactCurrentlyInfectedPeople,
   severeImpactCurrentlyInfectedPeople,
   calculateInfectionsByRequestedTime
-} from './challenge1';
+} from './challenge1/challenge1';
 import {
   calculateSevereCasesByRequestedTime,
   calculateHospitalBedsByRequestedTime
-} from './challenge2';
+} from './challenge2/challenge2';
 import {
   calculateCasesForICUByRequestedTime,
   calculateCasesForVentilatorsByRequestedTime,
   calculateDollarsInFlight
-} from './challenge3';
+} from './challenge3/challenge3';
 
 const covid19ImpactEstimator = (data) => {
-  // challenge 1 start here
-  // inputs { reportedCases, periodType, timeToElaspse }
+  // challenge 1
   const {
-    reportedCases, periodType, timeToElapse, region
+    reportedCases, periodType, timeToElapse, region, totalHospitalBeds
   } = data;
+  const { avgDailyIncomeInUSD, avgDailyIncomePopulation } = region;
 
   let impact = { ...impactCurrentlyInfectedPeople(reportedCases) };
   let severeImpact = { ...severeImpactCurrentlyInfectedPeople(reportedCases) };
@@ -31,11 +31,8 @@ const covid19ImpactEstimator = (data) => {
     ...severeImpact,
     ...calculateInfectionsByRequestedTime(severeImpact.currentlyInfected, periodType, timeToElapse)
   };
-  // challeng1 end
 
-  // challenge 2 start here
-  // inputs { totalHospitalBeds, impact, severeImpact }
-  const { totalHospitalBeds } = data;
+  // challenge 2
   impact = {
     ...impact,
     ...calculateSevereCasesByRequestedTime(impact.infectionsByRequestedTime)
@@ -55,10 +52,8 @@ const covid19ImpactEstimator = (data) => {
       totalHospitalBeds, severeImpact.severeCasesByRequestedTime
     )
   };
-  // challenge 2 ends here
 
-  // challenge 3 starts here
-  const { avgDailyIncomeInUSD, avgDailyIncomePopulation } = region;
+  // challenge 3
   impact = {
     ...impact,
     ...calculateCasesForICUByRequestedTime(impact.infectionsByRequestedTime)
@@ -88,7 +83,7 @@ const covid19ImpactEstimator = (data) => {
       severeImpact.infectionsByRequestedTime, periodType, timeToElapse)
   };
 
-  // challenge 3 ends here
+  // return
   const returnValue = { data, impact, severeImpact };
   return returnValue;
 };

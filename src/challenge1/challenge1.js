@@ -29,18 +29,3 @@ export const calculateInfectionsByRequestedTime = (currentlyInfected, period, ti
     infectionsByRequestedTime: currentlyInfected * power
   };
 };
-
-// export const challenge1 = ({ reportedCases, periodType, timeToElapse }) => {
-//   let impact = { ...impactCurrentlyInfectedPeople(reportedCases) };
-//   let severeImpact = { ...severeImpactCurrentlyInfectedPeople(reportedCases) };
-//   impact = {
-//     ...impact,
-//     ...calculateInfectionsByRequestedTime(impact.currentlyInfected, periodType, timeToElapse)
-//   };
-//   severeImpact = {
-//     ...severeImpact,
-//     ...calculateInfectionsByRequestedTime(severeImpact.currentlyInfected,
-// periodType, timeToElapse)
-//   };
-//   return { impact, severeImpact };
-// };

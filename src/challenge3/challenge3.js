@@ -1,4 +1,4 @@
-import { getPeriod } from './challenge1';
+import { getPeriod } from '../challenge1/challenge1';
 
 export const calculateCasesForICUByRequestedTime = (infectionsByRequestedTime) => ({
   casesForICUByRequestedTime: Math.floor((infectionsByRequestedTime * 5) / 100)
