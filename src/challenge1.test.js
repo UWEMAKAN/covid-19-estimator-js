@@ -1,9 +1,7 @@
 import {
   impactCurrentlyInfectedPeople,
   severeImpactCurrentlyInfectedPeople,
-  calculateInfectionsByRequestedTime,
-  getPeriod,
-  getFactor
+  calculateInfectionsByRequestedTime
 } from './challenge1';
 
 describe('Challenge 1 tests', () => {
@@ -75,29 +73,6 @@ describe('Challenge 1 tests', () => {
       const output = { infectionsByRequestedTime: currentlyInfected * (2 ** factor) };
       expect.assertions(1);
       expect(calculateInfectionsByRequestedTime(currentlyInfected, period, time)).toEqual(output);
-    });
-  });
-
-  describe('Test getPeriod', () => {
-    test('expect to return 1 when input is days', () => {
-      expect.assertions(1);
-      expect(getPeriod('days')).toEqual(1);
-    });
-    test('expect to return 7 when input is weeks', () => {
-      expect.assertions(1);
-      expect(getPeriod('weeks')).toEqual(7);
-    });
-    test('expect to return 30 when input is months', () => {
-      expect.assertions(1);
-      expect(getPeriod('months')).toEqual(30);
-    });
-  });
-
-  describe('Test getFactor', () => {
-    test('expect to return factor', () => {
-      const output = 2 ** 10;
-      expect.assertions(1);
-      expect(getFactor('months', 1)).toEqual(output);
     });
   });
 });
