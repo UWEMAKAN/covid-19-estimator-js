@@ -1,11 +1,11 @@
 import { getPeriod } from '../challenge1/challenge1';
 
 export const calculateCasesForICUByRequestedTime = (infectionsByRequestedTime) => ({
-  casesForICUByRequestedTime: Math.floor((infectionsByRequestedTime * 5) / 100)
+  casesForICUByRequestedTime: Math.floor(infectionsByRequestedTime * 0.05)
 });
 
 export const calculateCasesForVentilatorsByRequestedTime = (infectionsByRequestedTime) => ({
-  casesForVentilatorsByRequestedTime: Math.floor((infectionsByRequestedTime * 2) / 100)
+  casesForVentilatorsByRequestedTime: Math.floor(infectionsByRequestedTime * 0.02)
 });
 
 export const calculateDollarsInFlight = (
