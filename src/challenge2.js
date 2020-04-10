@@ -1,12 +1,12 @@
 export const calculateSevereCasesByRequestedTime = (infectionsByRequestedTime) => {
-  const severeCasesByRequestedTime = Math.floor(infectionsByRequestedTime * 0.15);
+  const severeCasesByRequestedTime = Math.trunc(infectionsByRequestedTime * 0.15);
   return { severeCasesByRequestedTime };
 };
 
 export const calculateHospitalBedsByRequestedTime = (
   totalHospitalBeds, severeCasesByRequestedTime
 ) => {
-  const hospitalBedsByRequestedTime = Math.floor(totalHospitalBeds * 0.35)
+  const hospitalBedsByRequestedTime = Math.trunc(totalHospitalBeds * 0.35)
                                         - severeCasesByRequestedTime;
   return { hospitalBedsByRequestedTime };
 };

@@ -20,7 +20,7 @@ export const getPeriod = (periodType) => {
 
 export const getFactor = (periodType, timeToElapse) => {
   const period = getPeriod(periodType);
-  return 2 ** Math.floor((timeToElapse * period) / 3);
+  return 2 ** Math.trunc((timeToElapse * period) / 3);
 };
 
 export const calculateInfectionsByRequestedTime = (currentlyInfected, period, time) => {

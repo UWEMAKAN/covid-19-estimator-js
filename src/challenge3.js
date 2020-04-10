@@ -1,11 +1,11 @@
 import { getPeriod } from './challenge1';
 
 export const calculateCasesForICUByRequestedTime = (infectionsByRequestedTime) => ({
-  casesForICUByRequestedTime: Math.floor((infectionsByRequestedTime * 5) / 100)
+  casesForICUByRequestedTime: Math.trunc((infectionsByRequestedTime * 5) / 100)
 });
 
 export const calculateCasesForVentilatorsByRequestedTime = (infectionsByRequestedTime) => ({
-  casesForVentilatorsByRequestedTime: Math.floor((infectionsByRequestedTime * 2) / 100)
+  casesForVentilatorsByRequestedTime: Math.trunc((infectionsByRequestedTime * 2) / 100)
 });
 
 export const calculateDollarsInFlight = (
@@ -13,7 +13,7 @@ export const calculateDollarsInFlight = (
   infectionsByRequestedTime, periodType, timeToElapse
 ) => {
   const period = getPeriod(periodType) * timeToElapse;
-  const dollarsInFlight = Math.floor((infectionsByRequestedTime * avgDailyIncomePopulation
+  const dollarsInFlight = Math.trunc((infectionsByRequestedTime * avgDailyIncomePopulation
   * avgDailyIncomeInUSD) / period);
   return { dollarsInFlight };
 };
